@@ -230,10 +230,11 @@ class txtstream
     {
         int bytesize = 0;
         for (int i = 0; i < count; i++) {
-            std::stringstream ss;
-            ss << obj[i];
-            const char* strptr = ss.str().c_str();
-            int strsize = (int) ss.str().size();
+            std::stringstream sss;
+            sss << obj[i];
+            std::string ss=sss.str();
+            const char* strptr = ss.c_str();
+            int strsize = (int) ss.size();
             if (bufsize < strsize) return -1;
             memcpy(buf + bytesize, strptr, strsize);
             bytesize += strsize;
